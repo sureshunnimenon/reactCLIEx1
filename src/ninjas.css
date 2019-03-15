@@ -1,0 +1,9 @@
+body {
+    background: wheat;
+    transition: all 3s;
+}
+
+form {
+    background: whitesmoke;
+    padding: 20px;
+}

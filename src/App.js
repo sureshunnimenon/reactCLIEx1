@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 // import logo from './logo.svg';
 // import './App.css';
 import Ninjas from './Ninjas';
+import AddNinja from './AddNinja';
 
 class App extends Component {
   state = {
@@ -11,6 +12,33 @@ class App extends Component {
       {name: "Sridevi", age: "12", belt: "orange", id: 3},
       {name: "Sruthi", age: "2", belt: "blue", id: 4}
     ]
+  }
+
+  addNinja = (ninja) => {
+    // console.log(ninja)
+    ninja.id= Math.random();
+    // copy original ninja
+    let ninjas = [...this.state.ninjas, ninja]
+    
+    this.setState({
+        ninjas: ninjas
+    })
+    console.log(this.state.ninjas)
+  }
+
+  deleteNinja = (id) => {
+    console.log(id)
+    let ninjas = this.state.ninjas.filter((ninja)=> ninja.id !== id )
+
+    this.setState({ninjas})
+  }
+
+  componentDidMount(){
+    console.log("Component mounted")
+  }
+
+  componentDidUpdate(prevProps, prevState){
+    console.log(prevState)
   }
 
   render() {
@@ -31,7 +59,8 @@ class App extends Component {
           </a> */}
           <h2> React SPA Example </h2>
           <p> Welcome :) </p>
-            < Ninjas ninjas = {this.state.ninjas}/> 
+            < Ninjas  deleteNinja = {this.deleteNinja} ninjas = {this.state.ninjas} /> 
+            <AddNinja addNinja = {this.addNinja}  /> 
         </header>
       </div>
     );
