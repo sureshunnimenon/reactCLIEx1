@@ -63,8 +63,8 @@ class App extends Component {
             <AddNinja addNinja = {this.addNinja}  /> 
         </header>
       </div>
-    );
-  }
-}
+    
+        );
+  }}
 
 export default App;
